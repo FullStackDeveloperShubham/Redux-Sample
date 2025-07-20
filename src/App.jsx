@@ -1,32 +1,42 @@
 import './App.css'
+import { useEffect, useState } from 'react'
 // NOTE : use of redux 
-import { useDispatch , useSelector } from 'react-redux'
-// NOTE : import the action from cunter sclice 
-import { increment , subsctract , multiplication , divide , reset} from './features/counter/counterSlice.js'
+import { useDispatch, useSelector } from 'react-redux'
+// NOTE : import sclice
+import { fetchedPost } from "./features/Blog/blogSlice.js"
 
-import { useState } from 'react'
 
 function App() {
-
-  // NOTE : read the state from redux store 
-   const count = useSelector((state) =>state.counter.value)
-   const history  = useSelector((state)=>state.counter.history)
-
-  //  NOTE : dispatch function 
   const dispatch = useDispatch()
 
-  // NOTE :local state
-  const [increamentAmount , setIncrementAmount] = useState(9)
+  const { posts, loading, error } = useSelector((state) => state.posts)
+  console.log(posts)
+  
+
+  useEffect(() => {
+    dispatch(fetchedPost())
+  }, [dispatch])
+
+  if (loading) return <div>Loaidng post ....</div>
+  if (error) return <div>Error  {error}....</div>
 
   return (
     <>
-     <h1>this is counter app using </h1>
-     <button onClick={()=>dispatch(increment())}>click here to update the valye </button>
-     <h1>updated value :{count}</h1>
-     <button onClick={()=>dispatch(subsctract())}>click me to subsctract the value</button>
-     <button onClick={()=>dispatch(multiplication())}>click me to mulltiply the value the value</button>
-      <button onClick={()=>dispatch(divide())}>Click to divide the value</button>
-      <button onClick={()=>dispatch(reset())}>Click to reset the value</button>
+      <div>
+        <h1>Posts</h1>
+        {posts.map(post => (
+          <div key={post.id} style={{
+            margin: '20px 0',
+            padding: '15px',
+            border: '1px solid #ddd',
+            borderRadius: '5px'
+          }}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+            <small>Post ID: {post.id}</small>
+          </div>
+        ))}
+      </div>
     </>
   )
 }

@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 // NOTE : configure ther redux 
 import { Provider } from 'react-redux'
-import { store } from './features/counter/store.js'
+import {store} from "./features/Blog/store.js"
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <App />
