@@ -1,6 +1,3 @@
-# Create the README.md file with the content from the previous message
-
-readme_content = """# 🔁 Redux Sample – Counter App using Redux Toolkit + React
 
 This is a simple yet complete example of a counter app built using **Redux Toolkit** with **ReactJS**. It demonstrates modern Redux practices like using `createSlice` and `configureStore`, offering a clean and scalable structure.
 
