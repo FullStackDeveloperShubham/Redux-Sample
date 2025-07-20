@@ -1,12 +1,91 @@
-# React + Vite
+# Create the README.md file with the content from the previous message
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+readme_content = """# 🔁 Redux Sample – Counter App using Redux Toolkit + React
 
-Currently, two official plugins are available:
+This is a simple yet complete example of a counter app built using **Redux Toolkit** with **ReactJS**. It demonstrates modern Redux practices like using `createSlice` and `configureStore`, offering a clean and scalable structure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ ReactJS
+- 🧰 Redux Toolkit
+- 🔗 React-Redux
+
+---
+
+## 🧰 Features
+
+- Increment / Decrement functionality
+- Global state management with Redux Toolkit
+- Minimal and scalable structure
+- Redux DevTools support out-of-the-box
+
+---
+
+## 🛠️ Installation & Running Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/FullStackDeveloperShubham/Redux-Sample.git
+
+cd Redux-Sample
+```
+
+```bash 
+2. Install Dependencies
+
+npm install
+```
+
+```bash
+3. Start the App
+
+npm run dev
+
+```
+
+```bash 
+📦 Example Code Snippets
+ 🧠 counterSlice.js
+
+
+import { createSlice } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => { state.value += 1 },
+    decrement: (state) => { state.value -= 1 },
+  },
+});
+
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;
+
+🧠 store.js
+
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from '../features/counter/counterSlice';
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+});
+
+```
+
+## ✍️ Author
+
+Made with ❤️ by [@FullStackDeveloperShubham](https://github.com/FullStackDeveloperShubham)
+
+### 🌐 Connect with me:
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/shubham-gaikwad-62499329a/)
+- 🐦 [Twitter / X](https://x.com/ItsDevShubham)
+- 📷 [Instagram](https://www.instagram.com/developer_shubham_/)
+- 💬 [Mediam Blog](https://medium.com/@s35919223)
+
